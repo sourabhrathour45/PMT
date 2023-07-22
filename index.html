@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT MANAGEMENT TOOL</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- CUSTOM STYLE CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 mb-5">PROJECT MANAGEMENT TOOL</h2>
+        <div class="mb-5">
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="username">User Name</label>
+                    <input type="text" 
+                    name="username" 
+                    class="form-control"
+                    id="username" 
+                    placeholder="Enter User Name">
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label for="taskname">Task Name</label>
+                    <input type="text" 
+                    name="taskname" 
+                    class="form-control"
+                    id="taskname" 
+                    placeholder="Enter Task Name">
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label for="descritpion">Descritpion</label>
+                    <input type="text" 
+                    name="descritpion" 
+                    class="form-control"
+                    id="descritpion" 
+                    placeholder="Enter Descritpion">
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label for="duration">Duration</label>
+                    <input type="text" 
+                    name="duration"
+                    class="form-control"
+                    id="duration"
+                    placeholder="Enter Duration">
+                </div>
+                <div class="col-lg-12 mt-5">
+                    <button class="btn btn-success" id="Submit"
+                    onclick="AddData()">
+                    Add Data
+                    </button>
+                    <button class="btn btn-primary" id="Update">Update</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered" id="managementTable">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Task Name</th>
+                            <th>Descritpion</th>
+                            <th>Duration</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

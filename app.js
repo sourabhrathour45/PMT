@@ -40,23 +40,25 @@ function showData(){
         peopleList = JSON.parse(localStorage.getItem("peopleList"));
     }
 
-    var html = "";
+    console.log(peopleList)
+
+    var content = "";
 
     peopleList.forEach(function (element, index){
-        html += "<tr>";
-        html += "<tr>" + element.username + "</td>";
-        html += "<tr>" + element.taskname + "</td>";
-        html += "<tr>" + element.description + "</td>";
-        html += "<tr>" + element.duration + "</td>";
-        html +=
-            '<td><button> onclick="deleteData(' + 
+        content += "<tr>";
+        content += "<td>" + element.username + "</td>";
+        content += "<td>" + element.taskname + "</td>";
+        content += "<td>" + element.description + "</td>";
+        content += "<td>" + element.duration + "</td>";
+        content +=
+            '<td><button onclick="deleteData(' + 
             index +
-            ')" class="btn btn-danger">Delete</button><buttononclick="updateData(' +index + 
+            ')" class="btn btn-danger">Delete</button><button onclick="updateData(' +index + 
             ')" class="btn btn-warning m-2">Edit</button></td>';
-        html +="</tr>";
+        content +="</tr>";
     });
 
-    document.querySelector("#managementTable tbody").innerHTML = html;
+    document.querySelector("#managementTable tbody ").innerHTML = content;
 } 
 
 // loads all data from local storage when document or page loaded
@@ -67,11 +69,20 @@ document.onload = showData();
 
 function AddData(){
     // if form is validate
-    if(validateForm() == true){
+    console.log("hello");
+  
+    if(validateForm() === true){
+        console.log("heyyy");
+
         var username = document.getElementById("username").value;
         var taskname = document.getElementById("taskname").value;
         var description = document.getElementById("description").value;
         var duration = document.getElementById("duration").value;
+
+        console.log(username);
+        console.log(taskname);
+        console.log(description);
+        console.log(duration);
 
         var peopleList;
         if (localStorage.getItem("peopleList") == null) {
@@ -86,6 +97,7 @@ function AddData(){
             description : description,
             duration : duration,
         });
+
 
         localStorage.setItem("peopleList", JSON.stringify(peopleList));
         showData();
@@ -106,13 +118,14 @@ function deleteData(index){
         peopleList = JSON.parse(localStorage.getItem("peopleList"));
     }
 
-    peopleList.slice(index, 1);
+    peopleList.splice(index, 1);
     localStorage.setItem("peopleList", JSON.stringify(peopleList));
     showData();
 }
 
 // function to update/edit data in local storage
 function updateData(index){
+    console.log("ddddd")
     // Submit button will hide and Update button will show for updating of Data in local storage
     document.getElementById("Submit").style.display = "none";
     document.getElementById("Update").style.display = "block";
@@ -131,6 +144,8 @@ function updateData(index){
     }   else {
         peopleList = JSON.parse(localStorage.getItem("peopleList"));
     }
+
+    // Making inputs editable 
 
     document.getElementById("username").value = peopleList[index].username;
     document.getElementById("taskname").value = peopleList[index].taskname;

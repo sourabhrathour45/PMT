@@ -69,7 +69,6 @@ document.onload = showData();
 
 function AddData(){
     // if form is validate
-    console.log("hello");
   
     if(validateForm() === true){
         console.log("heyyy");
@@ -78,11 +77,6 @@ function AddData(){
         var taskname = document.getElementById("taskname").value;
         var description = document.getElementById("description").value;
         var duration = document.getElementById("duration").value;
-
-        console.log(username);
-        console.log(taskname);
-        console.log(description);
-        console.log(duration);
 
         var peopleList;
         if (localStorage.getItem("peopleList") == null) {
@@ -125,7 +119,7 @@ function deleteData(index){
 
 // function to update/edit data in local storage
 function updateData(index){
-    console.log("ddddd")
+    
     // Submit button will hide and Update button will show for updating of Data in local storage
     document.getElementById("Submit").style.display = "none";
     document.getElementById("Update").style.display = "block";
